@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PropertyCard: View {
+struct RecomendedPropertyCard: View {
     
     let properties: [Property] = [
         Property(

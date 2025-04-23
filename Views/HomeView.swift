@@ -83,8 +83,9 @@ struct HomeView: View {
                                 print("Villa")
                             }) {
                                 VStack(spacing: 4) {
-                                    Image(systemName: "building.2.fill")
+                                    Image("villa")
                                         .font(.system(size: 35))
+                                        .opacity(0.9)
                                     Text("Villa")
                                         .font(.caption)
                                         .foregroundColor(.black)
@@ -109,8 +110,9 @@ struct HomeView: View {
                                 print("Bangalow")
                             }) {
                                 VStack(spacing: 4) {
-                                    Image(systemName: "house.lodge.fill")
+                                    Image("bungallow")
                                         .font(.system(size: 35))
+                                        .opacity(0.9)
                                     Text("Bangalow")
                                         .font(.caption)
                                         .foregroundColor(.black)

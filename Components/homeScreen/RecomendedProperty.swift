@@ -76,7 +76,7 @@ struct RecomendedProperty: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     ForEach(properties, id: \.name) { property in
-                        PropertyCard(property: property)
+                        RecomendedPropertyCard(property: property)
                     }
                 }
                 .padding(.horizontal)
