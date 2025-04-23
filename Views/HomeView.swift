@@ -20,7 +20,7 @@ struct HomeView: View {
                     HStack {
                         VStack (alignment: .leading) {
                             Text("Location")
-                                .font( .caption)
+                                .font(.caption)
                                 .foregroundColor(.gray)
                             
                             HStack {
@@ -124,6 +124,8 @@ struct HomeView: View {
                     RecomendedProperty()
                 }
             }
+            .background(Color(.gray.opacity(0.04)))
+            .ignoresSafeArea(edges: .bottom)
         }
     }
 }
