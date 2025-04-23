@@ -33,3 +33,8 @@ struct ContentView: View {
         .accentColor(.blue) // Customize selected tab color
     }
 }
+
+
+#Preview {
+    ContentView()
+}

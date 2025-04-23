@@ -45,6 +45,16 @@
 			path = RoofTop_RealEstateAppUITests;
 			sourceTree = "<group>";
 		};
+		A33C2E172DB8DBA600FAABB9 /* Views */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A33C2E1B2DB8DBC500FAABB9 /* Components */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,8 @@
 		A33C2DE42DB8DA6C00FAABB9 = {
 			isa = PBXGroup;
 			children = (
+				A33C2E1B2DB8DBC500FAABB9 /* Components */,
+				A33C2E172DB8DBA600FAABB9 /* Views */,
 				A33C2DEF2DB8DA6C00FAABB9 /* RoofTop_RealEstateApp */,
 				A33C2DFD2DB8DA6F00FAABB9 /* RoofTop_RealEstateAppTests */,
 				A33C2E072DB8DA6F00FAABB9 /* RoofTop_RealEstateAppUITests */,
@@ -109,6 +121,8 @@
 			);
 			fileSystemSynchronizedGroups = (
 				A33C2DEF2DB8DA6C00FAABB9 /* RoofTop_RealEstateApp */,
+				A33C2E172DB8DBA600FAABB9 /* Views */,
+				A33C2E1B2DB8DBC500FAABB9 /* Components */,
 			);
 			name = RoofTop_RealEstateApp;
 			packageProductDependencies = (
