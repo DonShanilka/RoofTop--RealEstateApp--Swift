@@ -74,6 +74,7 @@ struct HomeView: View {
                                         .font(.system(size: 35))
                                     Text("House")
                                         .font(.caption)
+                                        .foregroundColor(.black)
                                         .bold()
                                 }
                             }
@@ -86,6 +87,7 @@ struct HomeView: View {
                                         .font(.system(size: 35))
                                     Text("Villa")
                                         .font(.caption)
+                                        .foregroundColor(.black)
                                         .bold()
                                 }
                             }
@@ -98,6 +100,7 @@ struct HomeView: View {
                                         .font(.system(size: 35))
                                     Text("Apartment")
                                         .font(.caption)
+                                        .foregroundColor(.black)
                                         .bold()
                                 }
                             }
@@ -110,11 +113,21 @@ struct HomeView: View {
                                         .font(.system(size: 35))
                                     Text("Bangalow")
                                         .font(.caption)
+                                        .foregroundColor(.black)
                                         .bold()
                                 }
                             }
                         }
                         .padding(16)
+                        
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("Recommended Property")
+                                    .font(.headline)
+                                    .bold()
+                            }
+                        }
+                        
                     }
                 }
             }
