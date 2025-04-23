@@ -119,16 +119,9 @@ struct HomeView: View {
                             }
                         }
                         .padding(16)
-                        
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Text("Recommended Property")
-                                    .font(.headline)
-                                    .bold()
-                            }
-                        }
-                        
+                
                     }
+                    RecomendedProperty()
                 }
             }
         }

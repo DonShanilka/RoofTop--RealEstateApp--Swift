@@ -9,11 +9,11 @@ import Foundation
 
 struct Property: Identifiable {
     let id = UUID()
-    let image: String
+    let imageURL: String
     let type: String
     let name: String
     let location: String
     let price: String
     let rating: Double
-    var isFavourite: Bool
+    var isFavorite: Bool
 }
