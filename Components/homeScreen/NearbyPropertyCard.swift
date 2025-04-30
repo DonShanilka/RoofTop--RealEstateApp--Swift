@@ -17,87 +17,77 @@ struct NearbyProperty: View {
     }
 
     var body: some View {
-        
-        VStack(alignment: .leading) {
+        HStack(spacing: 12) {
             ZStack(alignment: .topTrailing) {
                 Image(property.imageURL)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 120)
-                    .cornerRadius(12)
+                    .scaledToFill()
+                    .frame(width: 90, height: 120)
                     .clipped()
-                    .padding(5)
+                    .cornerRadius(12)
 
                 Button(action: {
                     isFavorite.toggle()
                 }) {
                     Image(systemName: isFavorite ? "heart.fill" : "heart")
-                        .foregroundColor(isFavorite ? .red : .white)
-                        .padding(8)
-                        .background(Circle().fill(Color.white.opacity(0.8)))
-                        .padding(8)
+                        .foregroundColor(isFavorite ? .red : .gray)
+                        .padding(6)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(radius: 1)
                 }
+                .padding(6)
             }
 
-            HStack {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(property.type)
                     .font(.caption)
                     .foregroundColor(.blue)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(4)
 
-                Spacer()
-
-                HStack(spacing: 4) {
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                        .font(.caption)
-
-                    Text(String(format: "%.1f", property.rating))
-                        .font(.caption)
-                        .foregroundColor(.black)
-                }
+                Text(property.name)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .lineLimit(1)
             }
 
-            Text(property.name)
-                .font(.headline)
-                .padding(2)
+            Spacer()
 
-            HStack {
-                Image(systemName: "mappin.circle.fill")
-                    .foregroundColor(.gray)
+            HStack(spacing: 4) {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
                     .font(.caption)
-
-                Text(property.location)
+                Text(String(format: "%.1f", property.rating))
                     .font(.caption)
                     .foregroundColor(.gray)
             }
-            .padding(1)
-
-            Text("\(property.price) /month")
-                .font(.subheadline)
-                .foregroundColor(.blue)
-                .fontWeight(.semibold)
-                .padding(1)
         }
-        .frame(width: 180)
-        .padding(.vertical, 1)
+        .padding()
         .background(Color.white)
-        .cornerRadius(15)
+        .cornerRadius(16)
+        .shadow(color: Color.black.opacity(0.05), radius: 3, x: 0, y: 1)
     }
 }
 
 
+
+
 struct NearbyPropertiesList: View {
-        let properties: [Property]
-        
-        var body: some View {
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 16) {
-                    ForEach(properties, id: \.name) { property in
-                        NearbyProperty(property: property)
-                    }
+    let properties: [Property]
+
+    var body: some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 16) {
+                ForEach(properties, id: \.name) { property in
+                    NearbyProperty(property: property)
                 }
-                .padding()
             }
+            .padding()
+        }
+//        .background(Color(.systemGroupedBackground)) // optional subtle background
     }
 }
 

@@ -137,9 +137,9 @@ struct HomeView: View {
                         VStack {
                             NearbyPropertiesList(properties: nearbyProperties)
                         }
-                        .padding()
+                        
                     }
-                    .frame(height: 500) // 👈 Set appropriate height to enable scrolling
+                    .frame(height: 250) 
 
                 }
             }
