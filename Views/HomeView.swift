@@ -128,7 +128,7 @@ struct HomeView: View {
                                 }
                             }
                         }
-                        .padding(16)
+                        .padding(.horizontal, 30)
                 
                     }
                     RecomendedProperty()
@@ -144,7 +144,7 @@ struct HomeView: View {
                         }
                         
                     }
-                    .frame(height: 150)
+                    .frame(height: 170)
 
                 }
             }
