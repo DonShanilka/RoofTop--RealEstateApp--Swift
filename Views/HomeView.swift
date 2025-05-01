@@ -133,13 +133,18 @@ struct HomeView: View {
                     }
                     RecomendedProperty()
                     
+                    Text("Nearby Property")
+                        .font(.headline)
+                        .bold()
+                        .padding(.leading, 16)
+                    
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack {
                             NearbyPropertiesList(properties: nearbyProperties)
                         }
                         
                     }
-                    .frame(height: 250) 
+                    .frame(height: 150)
 
                 }
             }

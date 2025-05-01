@@ -17,12 +17,12 @@ struct NearbyProperty: View {
     }
 
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: 15) {
             ZStack(alignment: .topTrailing) {
                 Image(property.imageURL)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 90, height: 120)
+                    .frame(width: 100, height: 100)
                     .clipped()
                     .cornerRadius(12)
 
@@ -36,7 +36,7 @@ struct NearbyProperty: View {
                         .clipShape(Circle())
                         .shadow(radius: 1)
                 }
-                .padding(6)
+                .padding(4)
             }
 
             VStack(alignment: .leading, spacing: 4) {
@@ -52,6 +52,16 @@ struct NearbyProperty: View {
                     .font(.headline)
                     .foregroundColor(.primary)
                     .lineLimit(1)
+                
+                Text(property.location)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                
+                Text("\(property.price) /month")
+                    .font(.subheadline)
+                    .foregroundColor(.blue)
+                    .fontWeight(.semibold)
+                    .padding(1)
             }
 
             Spacer()
@@ -65,7 +75,7 @@ struct NearbyProperty: View {
                     .foregroundColor(.gray)
             }
         }
-        .padding()
+        .padding(8)
         .background(Color.white)
         .cornerRadius(16)
         .shadow(color: Color.black.opacity(0.05), radius: 3, x: 0, y: 1)
@@ -102,3 +112,4 @@ struct NearbyPropertiesList: View {
         Property(imageURL: "Home5", type: "House", name: "Sunset Home", location: "Los Angeles, CA", price: "$3,500", rating: 4.7, isFavorite: false)
     ])
 }
+
