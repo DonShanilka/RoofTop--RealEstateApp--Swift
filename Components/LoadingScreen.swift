@@ -34,11 +34,11 @@ extension Color {
 struct LoadingScreen: View {
     var body: some View {
         ZStack {
-            Color(hex: "#1a1aff") // #704F38
+            Color(hex: "#3333ff") // #704F38
                 .ignoresSafeArea()
             
             VStack {
-                Text("Re-State")
+                Text("Re-Estate")
                     .foregroundColor(.white)
                     .font(.largeTitle)
                     .font(.system(size: 32, weight: .bold, design: .default))
@@ -48,6 +48,7 @@ struct LoadingScreen: View {
                 Text("Loading...")
                     .foregroundColor(.white)
                     .font(.title3)
+                    .fontWeight(.light)
                     .padding()
             }
         }
