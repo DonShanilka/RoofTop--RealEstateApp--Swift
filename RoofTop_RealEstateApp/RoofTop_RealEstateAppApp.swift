@@ -11,7 +11,7 @@ import SwiftUI
 struct RoofTop_RealEstateAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SingUpScreen()
         }
     }
 }

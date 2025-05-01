@@ -30,7 +30,7 @@ struct ContentView: View {
                     Label("Profile", systemImage: "person.fill")
                 }
         }
-        .accentColor(.blue) // Customize selected tab color
+        .accentColor(.blue)
     }
 }
 
