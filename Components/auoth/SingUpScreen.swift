@@ -7,166 +7,177 @@
 
 import SwiftUI
 
-struct SingUpScreen:View {
+struct SingUpScreen: View {
     
     @State private var name: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var agreeToTerms = false
-    
+    @State private var navigateToSignIn = false
+
     var body: some View {
-        VStack(spacing: 20) {
-            VStack(spacing: 15) {
-                Text("Create Account")
-                    .fontWeight(.medium)
-                    .font(.system(size: 30))
-                    .padding()
-                
-                Text("Fill your information below or register with social account")
-                    .multilineTextAlignment(.center)
-                    .frame(width: 300)
-                    .foregroundColor(.gray)
-            }
-            
+        NavigationView {
             VStack(spacing: 20) {
-                
-                // Name
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Name")
-                        .font(.system(size: 18))
-                        .foregroundColor(.black)
-                    
-                    TextField("Enter your name", text: $name)
+                VStack(spacing: 4) {
+                    Text("Create Account")
+                        .fontWeight(.medium)
+                        .font(.system(size: 30))
                         .padding()
-                        .frame(width: 350)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .autocapitalization(.none)
+                    
+                    Text("Fill your information below or register with social account")
+                        .multilineTextAlignment(.center)
+                        .frame(width: 300)
+                        .foregroundColor(.gray)
                 }
                 
-                // Email
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Email")
-                        .font(.system(size: 18))
-                        .foregroundColor(.black)
+                VStack(spacing: 20) {
                     
-                    TextField("Enter your email", text: $email)
-                        .padding()
-                        .frame(width: 350)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .autocapitalization(.none)
-                }
-                
-                // Password
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Password")
-                        .font(.system(size: 18))
-                        .foregroundColor(.black)
+                    // Name
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Name")
+                            .font(.system(size: 18))
+                            .foregroundColor(.black)
+                        
+                        TextField("Enter your name", text: $name)
+                            .padding()
+                            .frame(width: 350)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                            .autocapitalization(.none)
+                    }
                     
-                    TextField("Enter your password", text: $email)
-                        .padding()
-                        .frame(width: 350)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                        .autocapitalization(.none)
-                }
-                
-                // Terms and conditions
-                HStack() {
-                    Button(action: {
-                        agreeToTerms.toggle()
-                    }) {
-                        ZStack {
-                            Rectangle()
-                                .fill(agreeToTerms ? Color.blue : Color.clear)
-                                .frame(width: 12, height: 12)
-                                .cornerRadius(4)
-                                .overlay(RoundedRectangle(cornerRadius: 4)
-                                    .stroke(agreeToTerms ? Color.blue : Color.gray, lineWidth: 1)
-                                )
-                            
-                            if agreeToTerms {
-                                Image(systemName: "checkark")
-                                    .font(.system(size: 12, weight: .bold))
-                                    .foregroundColor(.white)
+                    // Email
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Email")
+                            .font(.system(size: 18))
+                            .foregroundColor(.black)
+                        
+                        TextField("Enter your email", text: $email)
+                            .padding()
+                            .frame(width: 350)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                            .autocapitalization(.none)
+                    }
+                    
+                    // Password
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Password")
+                            .font(.system(size: 18))
+                            .foregroundColor(.black)
+                        
+                        SecureField("Enter your password", text: $password)
+                            .padding()
+                            .frame(width: 350)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8)
+                            .autocapitalization(.none)
+                    }
+                    
+                    // Terms and conditions
+                    HStack {
+                        Button(action: {
+                            agreeToTerms.toggle()
+                        }) {
+                            ZStack {
+                                Rectangle()
+                                    .fill(agreeToTerms ? Color.blue : Color.clear)
+                                    .frame(width: 12, height: 12)
+                                    .cornerRadius(4)
+                                    .overlay(RoundedRectangle(cornerRadius: 4)
+                                        .stroke(agreeToTerms ? Color.blue : Color.gray, lineWidth: 1)
+                                    )
+                                
+                                if agreeToTerms {
+                                    Image(systemName: "checkmark")
+                                        .font(.system(size: 10, weight: .bold))
+                                        .foregroundColor(.white)
+                                }
                             }
                         }
-                    }
-                    
-                    Text("Agree with")
-                        .font(.system(size: 14))
-                    
-                    Button(action: {}) {
-                        Text("Terms & Condition")
+                        
+                        Text("Agree with")
                             .font(.system(size: 14))
-                            .foregroundColor(.blue)
+                        
+                        Button(action: {
+                            // Open terms
+                        }) {
+                            Text("Terms & Condition")
+                                .font(.system(size: 14))
+                                .foregroundColor(.blue)
+                        }
+                        
+                        Spacer()
                     }
-                    Spacer()
-                }
-                .padding(.leading, 30)
-                
-                // SingUp Button
-                Button(action: {
-                    print("singUp")
-                }) {
-                    Text("Sing Up")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color(hex: "#004cff"))
-                        .cornerRadius(26)
-                }
-                .frame(width: 350)
-                
-                // Or sign up with
-                HStack {
-                    Rectangle()
-                        .fill(Color(.systemGray5))
-                        .frame(height: 1)
-                        .frame(width: 100)
-                                    
-                    Text("Or sign up with")
-                        .font(.system(size: 14))
-                        .foregroundColor(.secondary)
-                        .padding(.horizontal, 8)
-                                    
-                    Rectangle()
-                        .fill(Color(.systemGray5))
-                        .frame(height: 1)
-                        .frame(width: 100)
-                }
-                
-                // Social sign-up options
-                HStack(spacing: 20) {
-                    SocialSignInButton(image: "apple.logo", backgroundColor: .white)
-                    SocialSignInButton(image: "g.circle.fill", backgroundColor: .white)
-                    SocialSignInButton(image: "f.circle.fill", backgroundColor: .white)
-                }
-                
-                // Already have an account
-                HStack(spacing: 4) {
-                    Text("Already have an account?")
-                        .font(.system(size: 14))
-                        .foregroundColor(.secondary)
-                    
+                    .padding(.leading, 14)
+
+                    // Sign Up Button
                     Button(action: {
-                        // Handle sign in action
+                        print("Click Sing Up")
                     }) {
-                        Text("Sign In")
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(.blue)
+                        Text("Sign Up")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color(hex: "#004cff"))
+                            .cornerRadius(26)
                     }
+                    .frame(width: 350)
+                    
+                    // Divider
+                    HStack {
+                        Rectangle()
+                            .fill(Color(.systemGray5))
+                            .frame(height: 1)
+                            .frame(width: 100)
+                                    
+                        Text("Or sign up with")
+                            .font(.system(size: 14))
+                            .foregroundColor(.secondary)
+                            .padding(.horizontal, 8)
+                                    
+                        Rectangle()
+                            .fill(Color(.systemGray5))
+                            .frame(height: 1)
+                            .frame(width: 100)
+                    }
+                    
+                    // Social sign-up options
+                    HStack(spacing: 20) {
+                        SocialSignInButton(image: "apple.logo", backgroundColor: .white)
+                        SocialSignInButton(image: "g.circle.fill", backgroundColor: .white)
+                        SocialSignInButton(image: "f.circle.fill", backgroundColor: .white)
+                    }
+                    
+                    // Navigation Link for Sign In
+                    NavigationLink(destination: SingInScreen(), isActive: $navigateToSignIn) {
+                        EmptyView()
+                    }
+                    
+                    // Already have an account
+                    HStack(spacing: 4) {
+                        Text("Already have an account?")
+                            .font(.system(size: 14))
+                            .foregroundColor(.secondary)
+                        
+                        Button(action: {
+                            navigateToSignIn = true
+                        }) {
+                            Text("Sign In")
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.blue)
+                        }
+                    }
+                    .padding(.top, 8)
                 }
-                .padding(.top, 8)
-                
             }
+            .padding()
         }
     }
 }
 
-
+// Social sign-in button component
 struct SocialSignInButton: View {
     let image: String
     let backgroundColor: Color
@@ -184,11 +195,10 @@ struct SocialSignInButton: View {
                 .overlay(
                     Circle()
                         .stroke(Color(.systemGray5), lineWidth: 1)
-            )
+                )
         }
     }
 }
-
 
 #Preview {
     SingUpScreen()
