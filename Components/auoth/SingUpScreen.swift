@@ -145,6 +145,22 @@ struct SingUpScreen:View {
                     SocialSignInButton(image: "f.circle.fill", backgroundColor: .white)
                 }
                 
+                // Already have an account
+                HStack(spacing: 4) {
+                    Text("Already have an account?")
+                        .font(.system(size: 14))
+                        .foregroundColor(.secondary)
+                    
+                    Button(action: {
+                        // Handle sign in action
+                    }) {
+                        Text("Sign In")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundColor(.blue)
+                    }
+                }
+                .padding(.top, 8)
+                
             }
         }
     }
@@ -168,7 +184,7 @@ struct SocialSignInButton: View {
                 .overlay(
                     Circle()
                         .stroke(Color(.systemGray5), lineWidth: 1)
-                )
+            )
         }
     }
 }
