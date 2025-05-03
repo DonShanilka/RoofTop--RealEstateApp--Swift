@@ -14,10 +14,10 @@ struct SingUpScreen: View {
     @State private var password: String = ""
     @State private var agreeToTerms = false
     @State private var navigateToSignIn = false
-
+    
     var body: some View {
         NavigationView {
-            VStack(spacing: 20) {
+            VStack(spacing: 40) {
                 VStack(spacing: 4) {
                     Text("Create Account")
                         .fontWeight(.medium)
@@ -110,7 +110,7 @@ struct SingUpScreen: View {
                         Spacer()
                     }
                     .padding(.leading, 14)
-
+                    
                     // Sign Up Button
                     Button(action: {
                         print("Click Sing Up")
@@ -131,12 +131,12 @@ struct SingUpScreen: View {
                             .fill(Color(.systemGray5))
                             .frame(height: 1)
                             .frame(width: 100)
-                                    
+                        
                         Text("Or sign up with")
                             .font(.system(size: 14))
                             .foregroundColor(.secondary)
                             .padding(.horizontal, 8)
-                                    
+                        
                         Rectangle()
                             .fill(Color(.systemGray5))
                             .frame(height: 1)
@@ -150,26 +150,21 @@ struct SingUpScreen: View {
                         SocialSignInButton(image: "f.circle.fill", backgroundColor: .white)
                     }
                     
-                    // Navigation Link for Sign In
-                    NavigationLink(destination: SingInScreen(), isActive: $navigateToSignIn) {
-                        EmptyView()
-                    }
                     
                     // Already have an account
-                    HStack(spacing: 4) {
+                    HStack(spacing: 6) {
                         Text("Already have an account?")
                             .font(.system(size: 14))
                             .foregroundColor(.secondary)
                         
-                        Button(action: {
-                            navigateToSignIn = true
-                        }) {
+                        NavigationLink(destination: SignInScreen().navigationBarBackButtonHidden(true)) {
                             Text("Sign In")
                                 .font(.system(size: 14, weight: .semibold))
                                 .foregroundColor(.blue)
                         }
                     }
                     .padding(.top, 8)
+                    
                 }
             }
             .padding()
@@ -177,28 +172,6 @@ struct SingUpScreen: View {
     }
 }
 
-// Social sign-in button component
-struct SocialSignInButton: View {
-    let image: String
-    let backgroundColor: Color
-    
-    var body: some View {
-        Button(action: {
-            // Handle social sign in
-        }) {
-            Image(systemName: image)
-                .font(.system(size: 20))
-                .foregroundColor(.primary)
-                .frame(width: 50, height: 50)
-                .background(backgroundColor)
-                .cornerRadius(25)
-                .overlay(
-                    Circle()
-                        .stroke(Color(.systemGray5), lineWidth: 1)
-                )
-        }
-    }
-}
 
 #Preview {
     SingUpScreen()
